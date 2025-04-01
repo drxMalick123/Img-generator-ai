@@ -23,7 +23,7 @@ def generate():
 
 if __name__ == '__main__':
     # por = int(os.environ.get("PORT", 5000))  # Get PORT from environment
-    print(f"Starting Flask on port {por}...")
+    # print(f"Starting Flask on port {por}...")
     app.logger.info(f"check is ok ")  # Log request
   
     app.run(host='0.0.0.0', port=5000)
