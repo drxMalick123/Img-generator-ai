@@ -19,6 +19,6 @@ def generate():
     return jsonify({"image_url": image_url})
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 4000))  # Get PORT from environment
+    #port = int(os.environ.get("PORT", 4000))  # Get PORT from environment
     print(f"Starting Flask on port {port}...")
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=4000)
