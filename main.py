@@ -12,6 +12,7 @@ def home():
 def generate():
     data = request.json
     text_input = data.get('text', '')
+    print(text_input)
 
     # Call AI model to generate an image
     image_url = generate_image(text_input)
