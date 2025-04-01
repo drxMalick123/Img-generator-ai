@@ -1,9 +1,9 @@
 import os
 from flask import Flask, request, jsonify, render_template
 from model import generate_image  
-
+import logging
 app = Flask(__name__, static_folder="static", template_folder=os.path.abspath("templates"))
-
+logging.basicConfig(level=logging.INFO)
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -13,6 +13,8 @@ def generate():
     data = request.json
     text_input = data.get('text', '')
     print(text_input)
+    app.logger.info(f"Received request with text: {text_input}")  # Log request
+  
 
     # Call AI model to generate an image
     image_url = generate_image(text_input)
