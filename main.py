@@ -1,7 +1,7 @@
+import os
 from flask import Flask, request, jsonify, render_template
 from model import generate_image  
 
-#app = Flask(__name__, static_folder="static", template_folder="templates")
 app = Flask(__name__, static_folder="static", template_folder=os.path.abspath("templates"))
 
 @app.route('/')
@@ -19,4 +19,6 @@ def generate():
     return jsonify({"image_url": image_url})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000, debug=True)
+    port = int(os.environ.get("PORT", 4000))  # Get PORT from environment
+    print(f"Starting Flask on port {port}...")
+    app.run(host='0.0.0.0', port=port, debug=True)
